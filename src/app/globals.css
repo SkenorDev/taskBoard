@@ -68,3 +68,10 @@ body {
 .badge {
   @apply rounded-full px-2.5 py-1 text-xs font-medium;
 }
+
+.dashboard-eyebrow {
+  @apply text-sm font-medium text-indigo-600;
+}
+.welcome-text {
+  @apply mt-2 text-4xl font-semibold tracking-tight text-slate-900
+}

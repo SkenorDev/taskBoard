@@ -7,11 +7,10 @@ export default function Home() {
   return (
     <main className="min-h-screen pl-[250px]">
       <SideBar />
-      <header className="flex h-16 items-center border-b border-slate-200 bg-white px-6">
-        <h1 className="text-xl font-semibold text-slate-900">Dashboard</h1>
-      </header>
-      <section className="p-6">
-        <p className="text-slate-500">Welcome to your QA tracker.</p>
+      <section className="px-8 py-12">
+        <p className="dashboard-eyebrow">QA Tracker</p>
+        <h1 className="welcome-text">Welcome back to your dashboard</h1>
+
       </section>
     </main>
   );
