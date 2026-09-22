@@ -1,7 +1,3 @@
-'use client';
-
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
 import Link from 'next/link';
 
 const navItems = [
@@ -14,8 +10,8 @@ const navItems = [
 ];
 
 export default function SideBar() {
-  const DrawerList = (
-    <Box className="flex h-full w-[250px] flex-col bg-white p-4" role="presentation">
+  return (
+    <aside className="fixed inset-y-0 left-0 z-40 flex w-64 flex-col border-r border-slate-200 bg-white p-4" aria-label="Sidebar">
       <div className="mb-6 border-b border-slate-200 px-2 pb-4">
         <p className="text-lg font-semibold text-slate-900">QA Tracker</p>
         <p className="text-sm text-slate-500">Project workspace</p>
@@ -31,22 +27,6 @@ export default function SideBar() {
           </Link>
         ))}
       </nav>
-    </Box>
-  );
-
-  return (
-    <Drawer
-      variant="permanent"
-      sx={{
-        width: 250,
-        flexShrink: 0,
-        '& .MuiDrawer-paper': {
-          width: 250,
-          boxSizing: 'border-box',
-        },
-      }}
-    >
-      {DrawerList}
-    </Drawer>
+    </aside>
   );
 }
