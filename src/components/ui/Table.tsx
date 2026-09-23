@@ -5,7 +5,8 @@ export type TableRow = {
 };
 
 export type TableField = {
-  field: string;
+  field: keyof TableRow;
+  label: string;
 };
 
 type TableProps = {
@@ -16,9 +17,9 @@ type TableProps = {
 
 export default function Table({ name, data, fields }: TableProps) {
   const tableFields = fields ?? [
-    { field: "Type" },
-    { field: "Name" },
-    { field: "Description" },
+    { field: "type", label: "Type" },
+    { field: "name", label: "Name" },
+    { field: "description", label: "Description" },
   ];
 
   return (
@@ -27,27 +28,19 @@ export default function Table({ name, data, fields }: TableProps) {
       <table className="table-auto text-left">
         <thead>
           <tr>
-            {tableFields.map(({ field }) => (
-              <th key={field}>{field}</th>
+            {tableFields.map(({ field, label }) => (
+              <th key={field}>{label}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map(({ type, name, description }) => {
-            const values = {
-              Type: type ?? "",
-              Name: name,
-              Description: description,
-            };
-
-            return (
-              <tr key={`${type ?? ""}-${name}`}>
-                {tableFields.map(({ field }) => (
-                  <td key={field}>{values[field as keyof typeof values]}</td>
-                ))}
-              </tr>
-            );
-          })}
+          {data.map((row) => (
+            <tr key={`${row.type ?? ""}-${row.name}`}>
+              {tableFields.map(({ field }) => (
+                <td key={field}>{row[field]}</td>
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

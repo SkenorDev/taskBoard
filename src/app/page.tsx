@@ -9,28 +9,13 @@ import Table, {
   type TableRow,
 } from "@/components/ui/Table";
 const bugsFields: TableField[] = [
-  {
-    field: "Name",
-    
-  },
-  {
-    field: "Description",
-    
-  },
+  { field: "name", label: "Name" },
+  { field: "description", label: "Description" },
 ];
 const recentActivityFields: TableField[] = [
-  {
-    field: "Type",
-    
-  },
-  {
-    field: "Name",
-    
-  },
-  {
-    field: "Description",
-    
-  },
+  { field: "type", label: "Type" },
+  { field: "name", label: "Name" },
+  { field: "description", label: "Description" },
 ];
 const recentActivity: TableRow[] = [
   {
