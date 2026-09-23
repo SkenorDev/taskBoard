@@ -4,6 +4,7 @@
 import SideBar from "@/components/ui/SideBar";
 import TopBar from "@/components/ui/TopBar";
 import DataDisplay from "@/components/ui/DataDisplay";
+import Table from "@/components/ui/Table";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <DataDisplay name="Project 3" />
           <DataDisplay name="Project 4" />
         </div>
+        <Table name = "recent activity"/>
       </section>
     </main>
   );
