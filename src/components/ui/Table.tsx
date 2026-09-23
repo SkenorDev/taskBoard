@@ -1,27 +1,53 @@
-type TableProps = {
+export type TableRow = {
+  type?: string;
   name: string;
+  description: string;
 };
 
-export default function Table({ name }: TableProps) {
+export type TableField = {
+  field: string;
+};
+
+type TableProps = {
+  name: string;
+  data: TableRow[];
+  fields?: TableField[];
+};
+
+export default function Table({ name, data, fields }: TableProps) {
+  const tableFields = fields ?? [
+    { field: "Type" },
+    { field: "Name" },
+    { field: "Description" },
+  ];
+
   return (
     <div className="mt-8 w-full overflow-x-auto rounded-xl bg-white p-6 shadow-sm">
       <h2 className="mb-4 text-xl font-semibold text-slate-900">{name}</h2>
       <table className="table-auto text-left">
         <thead>
           <tr>
-            <th>Type</th>
-            <th>Name</th>
-            <th>Description</th>
+            {tableFields.map(({ field }) => (
+              <th key={field}>{field}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Test case created</td>
-            <td>Made button test</td>
-            <td>Made sure button appeared and disappered properly on confirmation</td>
-          </tr>
+          {data.map(({ type, name, description }) => {
+            const values = {
+              Type: type ?? "",
+              Name: name,
+              Description: description,
+            };
 
-
+            return (
+              <tr key={`${type ?? ""}-${name}`}>
+                {tableFields.map(({ field }) => (
+                  <td key={field}>{values[field as keyof typeof values]}</td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>
