@@ -3,7 +3,6 @@
 
 import SideBar from "@/components/ui/SideBar";
 import TopBar from "@/components/ui/TopBar";
-import Card from "@/components/ui/Card";
 import DataDisplay from "@/components/ui/DataDisplay";
 
 export default function Home() {
@@ -16,11 +15,13 @@ export default function Home() {
         <p className="dashboard-eyebrow">QA Tracker</p>
         <h1 className="welcome-text">Welcome back to your dashboard</h1>
 
-
-          <DataDisplay name = "Project 1 "/>
-
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-4 place-items-center">
+          <DataDisplay name="Project 1" />
+          <DataDisplay name="Project 2" />
+          <DataDisplay name="Project 3" />
+          <DataDisplay name="Project 4" />
+        </div>
       </section>
-   
     </main>
   );
 }
