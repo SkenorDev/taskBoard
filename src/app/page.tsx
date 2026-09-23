@@ -3,7 +3,8 @@
 
 import SideBar from "@/components/ui/SideBar";
 import TopBar from "@/components/ui/TopBar";
-import ConfirmDialog from "@/components/ui/ConfirmDialog";
+import Card from "@/components/ui/Card";
+import DataDisplay from "@/components/ui/DataDisplay";
 
 export default function Home() {
   return (
@@ -15,8 +16,11 @@ export default function Home() {
         <p className="dashboard-eyebrow">QA Tracker</p>
         <h1 className="welcome-text">Welcome back to your dashboard</h1>
 
+
+          <DataDisplay name = "Project 1 "/>
+
       </section>
-      <ConfirmDialog dialog="do this" />
+   
     </main>
   );
 }
