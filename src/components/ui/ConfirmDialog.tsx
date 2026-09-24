@@ -1,7 +1,8 @@
+import { Button } from "@/components/ui/Button";
 
 
 type ConfirmDialogProps = {
-  dialog?: string;
+  dialog: string;
 };
 
 export default function ConfirmDialog({ dialog = "" }: ConfirmDialogProps) {
@@ -12,12 +13,12 @@ export default function ConfirmDialog({ dialog = "" }: ConfirmDialogProps) {
           {`Are you sure you want to ${dialog}`}
         </p>
         <div className="mt-6 flex justify-center gap-3">
-          <button className="rounded-md bg-danger px-4 py-2 text-sm font-medium text-white hover:bg-(--dangerhover) focus:outline-none focus:ring-2 focus:ring-danger/40">
+          <Button variant="danger" size="sm">
             No
-          </button>
-          <button className="rounded-md bg-success px-4 py-2 text-sm font-medium text-white hover:bg-(--successhover) focus:outline-none focus:ring-2 focus:ring-success/40">
+          </Button>
+          <Button variant="primary" size="sm">
             Yes
-          </button>
+          </Button>
         </div>
       </div>
     </div>
